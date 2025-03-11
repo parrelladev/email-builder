@@ -107,3 +107,46 @@ export function toggleSamplesDrawerOpen() {
 export function setSelectedScreenSize(selectedScreenSize: TValue['selectedScreenSize']) {
   return editorStateStore.setState({ selectedScreenSize });
 }
+
+export function duplicateBlock(blockId: string) {
+  const state = editorStateStore.getState();
+  const document = state.document;
+  const blockToCopy = document[blockId];
+
+  if (!blockToCopy) return;
+
+  // Gerar novo ID único para o bloco duplicado
+  const newBlockId = `block-${Date.now()}`;
+
+  // Criar cópia profunda do bloco
+  const newBlock = JSON.parse(JSON.stringify(blockToCopy));
+
+  // Atualizar o documento com o novo bloco
+  const updatedDocument = {
+    ...document,
+    [newBlockId]: newBlock,
+  };
+
+  // Se o bloco está dentro de um container, adicionar à lista de childrenIds
+  Object.entries(document).forEach(([id, block]) => {
+    if (block.data?.childrenIds?.includes(blockId)) {
+      const index = block.data.childrenIds.indexOf(blockId);
+      const newChildrenIds = [...block.data.childrenIds];
+      newChildrenIds.splice(index + 1, 0, newBlockId);
+      
+      updatedDocument[id] = {
+        ...block,
+        data: {
+          ...block.data,
+          childrenIds: newChildrenIds,
+        },
+      };
+    }
+  });
+
+  // Atualizar o estado
+  editorStateStore.setState({
+    document: updatedDocument,
+    selectedBlockId: newBlockId,
+  });
+}

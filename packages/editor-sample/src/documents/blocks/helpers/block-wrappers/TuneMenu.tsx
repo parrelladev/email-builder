@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { ArrowDownwardOutlined, ArrowUpwardOutlined, DeleteOutlined } from '@mui/icons-material';
+import { ArrowDownwardOutlined, ArrowUpwardOutlined, DeleteOutlined, ContentCopyOutlined } from '@mui/icons-material';
 import { IconButton, Paper, Stack, SxProps, Tooltip } from '@mui/material';
 
 import { TEditorBlock } from '../../../editor/core';
-import { resetDocument, setSelectedBlockId, useDocument } from '../../../editor/EditorContext';
+import { resetDocument, setSelectedBlockId, useDocument, duplicateBlock } from '../../../editor/EditorContext';
 import { ColumnsContainerProps } from '../../ColumnsContainer/ColumnsContainerPropsSchema';
 
 const sx: SxProps = {
@@ -159,6 +159,11 @@ export default function TuneMenu({ blockId }: Props) {
         <Tooltip title="Move down" placement="left-start">
           <IconButton onClick={() => handleMoveClick('down')} sx={{ color: 'text.primary' }}>
             <ArrowDownwardOutlined fontSize="small" />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Duplicate" placement="left-start">
+          <IconButton onClick={() => duplicateBlock(blockId)} sx={{ color: 'text.primary' }}>
+            <ContentCopyOutlined fontSize="small" />
           </IconButton>
         </Tooltip>
         <Tooltip title="Delete" placement="left-start">
