@@ -1,5 +1,5 @@
 {
-  "name": "@usewaypoint-monorepo",
+  "name": "email-builder-js",
   "version": "0.0.6",
   "private": true,
   "workspaces": [
@@ -7,10 +7,10 @@
   ],
   "scripts": {
     "dev": "cd packages/editor-sample && npm run dev",
-    "build": "npm install && npm run build:packages && cd packages/editor-sample && npm install && npm run build",
+    "build": "npm run build:packages && cd packages/editor-sample && npm run build",
     "build:packages": "npm run build:core && npm run build:blocks && npm run build:builder",
     "build:core": "cd packages/document-core && npm install && npm run build",
-    "build:blocks": "npm-run-all --parallel build:block:*",
+    "build:blocks": "npm run build:block:avatar && npm run build:block:button && npm run build:block:columns && npm run build:block:container && npm run build:block:divider && npm run build:block:heading && npm run build:block:html && npm run build:block:image && npm run build:block:spacer && npm run build:block:text",
     "build:block:avatar": "cd packages/block-avatar && npm install && npm run build",
     "build:block:button": "cd packages/block-button && npm install && npm run build",
     "build:block:columns": "cd packages/block-columns-container && npm install && npm run build",
@@ -22,7 +22,8 @@
     "build:block:spacer": "cd packages/block-spacer && npm install && npm run build",
     "build:block:text": "cd packages/block-text && npm install && npm run build",
     "build:builder": "cd packages/email-builder && npm install && npm run build",
-    "test": "npx jest"
+    "test": "npx jest",
+    "postinstall": "npm run build:packages"
   },
   "author": "carlos@usewaypoint.com",
   "license": "MIT",
@@ -36,7 +37,6 @@
     "eslint-plugin-simple-import-sort": "^11.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
     "react-test-renderer": "^18.2.0",
     "ts-jest": "^29.1.2",
@@ -53,6 +53,8 @@
     "marked": "^12.0.0",
     "insane": "^2.6.2",
     "zustand": "^4.5.1",
-    "@vitejs/plugin-react-swc": "^3.6.0"
+    "@vitejs/plugin-react-swc": "^3.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
