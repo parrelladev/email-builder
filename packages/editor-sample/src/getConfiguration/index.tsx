@@ -1,4 +1,5 @@
 import EMPTY_EMAIL_MESSAGE from './sample/empty-email-message';
+import FIQUE_LIGADO from './sample/fique-ligado';
 import ONE_TIME_PASSCODE from './sample/one-time-passcode';
 import ORDER_ECOMMERCE from './sample/order-ecommerce';
 import POST_METRICS_REPORT from './sample/post-metrics-report';
@@ -28,6 +29,8 @@ export default function getConfiguration(template: string) {
         return RESPOND_TO_MESSAGE;
       case 'subscription-receipt':
         return SUBSCRIPTION_RECEIPT;
+      case 'fique-ligado':
+        return FIQUE_LIGADO;
     }
   }
 

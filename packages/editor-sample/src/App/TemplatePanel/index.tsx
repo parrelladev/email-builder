@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { MonitorOutlined, PhoneIphoneOutlined } from '@mui/icons-material';
-import { Box, Stack, SxProps, ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
+import { MonitorOutlined, PhoneIphoneOutlined, DataObjectOutlined } from '@mui/icons-material';
+import { Box, Stack, SxProps, ToggleButton, ToggleButtonGroup, Tooltip, IconButton } from '@mui/material';
 import { Reader } from '@usewaypoint/email-builder';
 
 import EditorBlock from '../../documents/editor/EditorBlock';
@@ -10,6 +10,7 @@ import {
   useDocument,
   useSelectedMainTab,
   useSelectedScreenSize,
+  setSelectedMainTab,
 } from '../../documents/editor/EditorContext';
 import ToggleInspectorPanelButton from '../InspectorDrawer/ToggleInspectorPanelButton';
 import ToggleSamplesPanelButton from '../SamplesDrawer/ToggleSamplesPanelButton';
@@ -95,6 +96,11 @@ export default function TemplatePanel() {
             <MainTabsGroup />
           </Stack>
           <Stack direction="row" spacing={2}>
+            <Tooltip title="JSON output">
+              <IconButton onClick={() => setSelectedMainTab('json')} color={selectedMainTab === 'json' ? 'primary' : 'default'}>
+                <DataObjectOutlined fontSize="small" />
+              </IconButton>
+            </Tooltip>
             <DownloadJson />
             <ImportJson />
             <ToggleButtonGroup value={selectedScreenSize} exclusive size="small" onChange={handleScreenSizeChange}>
