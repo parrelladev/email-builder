@@ -28,16 +28,16 @@ export default function SamplesDrawer() {
           </Typography>
 
           <Stack alignItems="flex-start">
-            <SidebarButton href="#">Empty</SidebarButton>
+            <SidebarButton href="#">Novo email</SidebarButton>
             <SidebarButton href="#sample/fique-ligado">Fique Ligado</SidebarButton>
-            <SidebarButton href="#sample/welcome">Welcome email</SidebarButton>
-            <SidebarButton href="#sample/one-time-password">One-time passcode (OTP)</SidebarButton>
-            <SidebarButton href="#sample/reset-password">Reset password</SidebarButton>
-            <SidebarButton href="#sample/order-ecomerce">E-commerce receipt</SidebarButton>
-            <SidebarButton href="#sample/subscription-receipt">Subscription receipt</SidebarButton>
-            <SidebarButton href="#sample/reservation-reminder">Reservation reminder</SidebarButton>
-            <SidebarButton href="#sample/post-metrics-report">Post metrics</SidebarButton>
-            <SidebarButton href="#sample/respond-to-message">Respond to inquiry</SidebarButton>
+            <SidebarButton href="#sample/welcome">Email de boas-vindas</SidebarButton>
+            <SidebarButton href="#sample/one-time-password">Código de acesso único (OTP)</SidebarButton>
+            <SidebarButton href="#sample/reset-password">Redefinir senha</SidebarButton>
+            <SidebarButton href="#sample/order-ecomerce">Recibo de e-commerce</SidebarButton>
+            <SidebarButton href="#sample/subscription-receipt">Recibo de assinatura</SidebarButton>
+            <SidebarButton href="#sample/reservation-reminder">Lembrete de reserva</SidebarButton>
+            <SidebarButton href="#sample/post-metrics-report">Métricas de postagem</SidebarButton>
+            <SidebarButton href="#sample/respond-to-message">Responder à consulta</SidebarButton>
           </Stack>
 
           <Divider />
@@ -57,21 +57,20 @@ export default function SamplesDrawer() {
           </Link>
           <Box>
             <Typography variant="overline" gutterBottom>
-              Looking to send emails?
+            Quer enviar este email?
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
-              Waypoint is an end-to-end email API with a &apos;pro&apos; version of this template builder with dynamic
-              variables, loops, conditionals, drag and drop, layouts, and more.
+            Clique no botão abaixo e acesse a plataforma para fazer o envio deste e de outros templates. Lembrando que basta copiar o código HTML e colar no Listmonk.
             </Typography>
           </Box>
           <Button
             variant="contained"
             color="primary"
             sx={{ justifyContent: 'center' }}
-            href="https://usewaypoint.com?utm_source=emailbuilderjs"
+            href="https://gztvix-listmonk.redegazeta.net/"
             target="_blank"
           >
-            Learn more
+            Acessar Listmonk!
           </Button>
         </Stack>
       </Stack>
