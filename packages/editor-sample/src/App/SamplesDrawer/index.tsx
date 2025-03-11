@@ -53,11 +53,11 @@ export default function SamplesDrawer() {
         </Stack>
         <Stack spacing={2} px={0.75} py={3}>
           <Link href="https://usewaypoint.com?utm_source=emailbuilderjs" target="_blank" sx={{ lineHeight: 1 }}>
-            <Box component="img" src={logo} width={32} />
+            <Box component="img" src="https://listmonk.app/static/images/logo.svg" width={90} />
           </Link>
           <Box>
             <Typography variant="overline" gutterBottom>
-            Quer enviar este email?
+            Deseja enviar este email?
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
             Clique no botão abaixo e acesse a plataforma para fazer o envio deste e de outros templates. Lembrando que basta copiar o código HTML e colar no Listmonk.
