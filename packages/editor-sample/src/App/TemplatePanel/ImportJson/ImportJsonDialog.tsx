@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
 
 import {
   Alert,
@@ -10,6 +11,7 @@ import {
   Link,
   TextField,
   Typography,
+  Box,
 } from '@mui/material';
 
 import { resetDocument } from '../../../documents/editor/EditorContext';
@@ -19,9 +21,32 @@ import validateJsonStringValue from './validateJsonStringValue';
 type ImportJsonDialogProps = {
   onClose: () => void;
 };
+
 export default function ImportJsonDialog({ onClose }: ImportJsonDialogProps) {
   const [value, setValue] = useState('');
   const [error, setError] = useState<string | null>(null);
+
+  const onDrop = useCallback(async (acceptedFiles: File[]) => {
+    try {
+      const file = acceptedFiles[0];
+      if (!file) return;
+
+      const text = await file.text();
+      setValue(text);
+      const { error } = validateJsonStringValue(text);
+      setError(error ?? null);
+    } catch (err) {
+      setError('Erro ao ler o arquivo');
+    }
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: {
+      'application/json': ['.json']
+    },
+    multiple: false
+  });
 
   const handleChange: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement> = (ev) => {
     const v = ev.currentTarget.value;
@@ -36,8 +61,8 @@ export default function ImportJsonDialog({ onClose }: ImportJsonDialogProps) {
   }
 
   return (
-    <Dialog open onClose={onClose}>
-      <DialogTitle>Import JSON</DialogTitle>
+    <Dialog open onClose={onClose} maxWidth="md" fullWidth>
+      <DialogTitle>Importar JSON</DialogTitle>
       <form
         onSubmit={(ev) => {
           ev.preventDefault();
@@ -52,23 +77,49 @@ export default function ImportJsonDialog({ onClose }: ImportJsonDialogProps) {
       >
         <DialogContent>
           <Typography color="text.secondary" paragraph>
-            Copy and paste an EmailBuilder.js JSON (
+            Cole um JSON do EmailBuilder.js (
             <Link
               href="https://gist.githubusercontent.com/jordanisip/efb61f56ba71bd36d3a9440122cb7f50/raw/30ea74a6ac7e52ebdc309bce07b71a9286ce2526/emailBuilderTemplate.json"
               target="_blank"
               underline="none"
             >
-              example
+              exemplo
             </Link>
-            ).
+            ) ou arraste um arquivo .json para esta área.
           </Typography>
           {errorAlert}
+          
+          <Box
+            {...getRootProps()}
+            sx={{
+              border: '2px dashed',
+              borderColor: isDragActive ? 'primary.main' : 'grey.300',
+              borderRadius: 1,
+              p: 2,
+              mb: 2,
+              backgroundColor: isDragActive ? 'action.hover' : 'background.paper',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              '&:hover': {
+                borderColor: 'primary.main',
+                backgroundColor: 'action.hover'
+              }
+            }}
+          >
+            <input {...getInputProps()} />
+            <Typography align="center" color="text.secondary">
+              {isDragActive
+                ? 'Solte o arquivo aqui...'
+                : 'Arraste e solte um arquivo JSON aqui, ou clique para selecionar'}
+            </Typography>
+          </Box>
+
           <TextField
             error={error !== null}
             value={value}
             onChange={handleChange}
             type="text"
-            helperText="This will override your current template."
+            helperText="Isso irá substituir seu template atual."
             variant="outlined"
             fullWidth
             rows={10}
@@ -76,11 +127,9 @@ export default function ImportJsonDialog({ onClose }: ImportJsonDialogProps) {
           />
         </DialogContent>
         <DialogActions>
-          <Button type="button" onClick={onClose}>
-            Cancel
-          </Button>
-          <Button variant="contained" type="submit" disabled={error !== null}>
-            Import
+          <Button onClick={onClose}>Cancelar</Button>
+          <Button type="submit" variant="contained" disabled={error !== null || !value}>
+            Importar
           </Button>
         </DialogActions>
       </form>
