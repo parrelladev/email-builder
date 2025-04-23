@@ -31,6 +31,8 @@ export default function getConfiguration(template: string) {
         return SUBSCRIPTION_RECEIPT;
       case 'fique-ligado':
         return FIQUE_LIGADO;
+      case 'inova-news':
+        return INOVA_NEWS;
     }
   }
 
