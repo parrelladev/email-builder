@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>MyEmailBuilder</h1>
+  <h1>Email Studio</h1>
   <p align="center">
     Uma plataforma open-source para criação de templates de e-mail com exportação em HTML e JSON.
   </p>
