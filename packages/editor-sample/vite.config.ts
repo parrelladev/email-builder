@@ -20,5 +20,5 @@ export default defineConfig({
       '@usewaypoint/document-core': path.resolve(__dirname, '../../packages/document-core/src')
     }
   },
-  base: '/email-builder-js/'
+  base: '/'
 });
