@@ -1,15 +1,18 @@
-export { default as renderToStaticMarkup } from './renderers/renderToStaticMarkup';
+// Exportação da função de renderização
+import renderToStaticMarkup from './renderers/renderToStaticMarkup';
+export { renderToStaticMarkup };
 
+// Exportações da lógica do Reader
 export {
+  Reader,
   ReaderBlockSchema,
-  TReaderBlock,
-  //
-  ReaderDocumentSchema,
-  TReaderDocument,
-  //
   ReaderBlock,
+  ReaderDocumentSchema
+} from './Reader/core';
+
+export type {
+  TReaderBlock,
+  TReaderDocument,
   TReaderBlockProps,
-  //
-  TReaderProps,
-  default as Reader,
+  TReaderProps
 } from './Reader/core';

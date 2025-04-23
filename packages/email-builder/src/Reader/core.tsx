@@ -94,7 +94,7 @@ export type TReaderProps = {
   document: Record<string, z.infer<typeof ReaderBlockSchema>>;
   rootBlockId: string;
 };
-export default function Reader({ document, rootBlockId }: TReaderProps) {
+export function Reader({ document, rootBlockId }: TReaderProps) {
   return (
     <ReaderContext.Provider value={document}>
       <ReaderBlock id={rootBlockId} />

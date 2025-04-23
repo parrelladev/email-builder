@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToStaticMarkup as baseRenderToStaticMarkup } from 'react-dom/server';
 
-import Reader, { TReaderDocument } from '../Reader/core';
+import { Reader, TReaderDocument } from '../Reader/core';
 
 type TOptions = {
   rootBlockId: string;

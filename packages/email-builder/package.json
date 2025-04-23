@@ -1,22 +1,11 @@
 {
   "name": "@usewaypoint/email-builder",
   "version": "0.0.8",
-  "description": "React component to render email messages",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": [
-    "dist"
-  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
-    "build": "npx tsc"
+    "build": "tsc"
   },
   "author": "carlos@usewaypoint.com",
   "license": "MIT",
