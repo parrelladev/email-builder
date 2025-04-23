@@ -1,6 +1,5 @@
 {
   "buildCommand": "npm install && npm run build",
   "outputDirectory": "packages/editor-sample/dist",
-  "rootDirectory": "packages/editor-sample",
-  "framework": null
+  "installCommand": "npm install"
 }
