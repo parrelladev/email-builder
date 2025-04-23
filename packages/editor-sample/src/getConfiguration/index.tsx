@@ -27,6 +27,8 @@ export default function getConfiguration(template: string) {
         return FIQUE_LIGADO;
       case 'inova-news':
         return INOVA_NEWS;
+      case 'vagas-internas':
+        return VAGAS_INTERNAS;
     }
   }
 
