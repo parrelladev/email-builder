@@ -30,14 +30,8 @@ export default function SamplesDrawer() {
           <Stack alignItems="flex-start">
             <SidebarButton href="#">Novo email</SidebarButton>
             <SidebarButton href="#sample/fique-ligado">Fique Ligado</SidebarButton>
-            <SidebarButton href="#sample/welcome">Email de boas-vindas</SidebarButton>
-            <SidebarButton href="#sample/one-time-password">Código de acesso único (OTP)</SidebarButton>
-            <SidebarButton href="#sample/reset-password">Redefinir senha</SidebarButton>
-            <SidebarButton href="#sample/order-ecomerce">Recibo de e-commerce</SidebarButton>
-            <SidebarButton href="#sample/subscription-receipt">Recibo de assinatura</SidebarButton>
-            <SidebarButton href="#sample/reservation-reminder">Lembrete de reserva</SidebarButton>
-            <SidebarButton href="#sample/post-metrics-report">Métricas de postagem</SidebarButton>
-            <SidebarButton href="#sample/respond-to-message">Responder à consulta</SidebarButton>
+            <SidebarButton href="#sample/inova-news">Inova News</SidebarButton>
+            <SidebarButton href="#sample/vagas-internas">Vagas Internas</SidebarButton>
           </Stack>
 
           <Divider />
