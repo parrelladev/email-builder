@@ -1,13 +1,7 @@
 import EMPTY_EMAIL_MESSAGE from './sample/empty-email-message';
 import FIQUE_LIGADO from './sample/fique-ligado';
-import ONE_TIME_PASSCODE from './sample/one-time-passcode';
-import ORDER_ECOMMERCE from './sample/order-ecommerce';
-import POST_METRICS_REPORT from './sample/post-metrics-report';
-import RESERVATION_REMINDER from './sample/reservation-reminder';
-import RESET_PASSWORD from './sample/reset-password';
-import RESPOND_TO_MESSAGE from './sample/respond-to-message';
-import SUBSCRIPTION_RECEIPT from './sample/subscription-receipt';
-import WELCOME from './sample/welcome';
+import INOVA_NEWS from './sample/inova-news';
+import VAGAS_INTERNAS from './sample/vagas-internas';
 
 export default function getConfiguration(template: string) {
   if (template.startsWith('#sample/')) {
