@@ -534,9 +534,9 @@ const FIQUE_LIGADO: TEditorConfiguration = {
         }
       },
       "props": {
-        "url": "https://www.redegazeta.com.br/wp-content/uploads/2024/08/Prancheta-1.png",
+        "url": "https://www.redegazeta.com.br/wp-content/uploads/2025/03/ARTE-CLUBE-GAZETA-FL-2-2-e1744737101279.png",
         "alt": "Clube A Gazeta",
-        "linkHref": "https://emkt.agazeta.com.br/fique-ligado@TrackLink",
+        "linkHref": "https://bit.ly/clubeagfiqueligado@TrackLink",
         "contentAlignment": "middle"
       }
     }
